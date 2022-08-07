@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <div class="row">
+                <div class="col-6">
+                    <h1>Crypto Dashboard</h1>
+                </div>
+            </div>
+        </header>
+
+        <section id="current-prices">
+            <div class="row">
+                <div class="col-2">
+                        <p>Bitcoin: <span id="bitcoin-price">999</span>€</p>
+                </div>
+                <div class="col-2">
+                        <p>Ethereum: <span id="ethereum-price">999</span>€</p>
+                </div>
+                <div class="col-2">
+                        <p>Waves: <span id="waves-price">999</span>€</p>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="row">
+                <div class="col-6">
+                    <label for="period-select">Select Time period</label>
+                    <select id="period-select" name="period-select">
+                        <option value="1" selected>1 Day</option>
+                        <option value="7">1 Week</option>
+                        <option value="31">1 Month</option>
+                        <option value="93">3 Month</option>
+                        <option value="186">6 Month</option>
+                        <option value="365">1 Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

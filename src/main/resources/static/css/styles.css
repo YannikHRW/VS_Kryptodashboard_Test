@@ -1,0 +1,90 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+}
+
+#current-prices .col-2 p {
+    text-align: center;
+}
+
+#current-prices .col-2 {
+    background-color: green;
+    border: 2px solid black;
+}
+
+/* GRID-SYSTEM */
+
+.container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col"] {
+    float: left;
+    min-height: 1px;
+    padding: .8rem;
+}
+
+.col-1 {width: 16.666%; }
+.col-2 {width: 33.333%; }
+.col-3 {width: 50%;     }
+.col-4 {width: 66.666%; }
+.col-6 {width: 100%;    }
+
+
+
+/* GRID-SYSTEM (Sichtbarkeit) */
+
+/*.border, .border * {
+  border: 1px solid #91C4FF;
+}
+
+[class*="col"] {
+  background-color: #BFDDFF;
+}
+
+p {
+  background-color: #91C4FF;
+  padding: 0;
+  margin: 0;
+  color: #FFF;
+  text-align: center;
+}*/
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .col-1 {width: 33.333%; }
+}
+
+@media (max-width: 768px) {
+    .col-1 {width: 50%;}
+    .col-2 {width: 100%;}
+    .col-3 {width: 100%;}
+    .col-4 {width: 100%;}
+}
+
+@media (max-width: 480px) {
+    .col-1 {width: 100%;}
+    .col-2 {width: 100%;}
+    .col-3 {width: 100%;}
+    .col-4 {width: 100%;}
+}
