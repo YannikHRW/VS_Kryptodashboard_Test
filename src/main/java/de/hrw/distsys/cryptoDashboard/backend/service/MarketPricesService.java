@@ -41,6 +41,7 @@ public class MarketPricesService {
                 jsonObject = objectMapper.readValue(new URL(
                                 "https://api.coingecko.com/api/v3/coins/" + coin + "/market_chart/range?vs_currency=eur&from=" + fromUnix + "&to=" + currentDateTimeInUnix),
                         JSONObject.class);
+                // hier vllt noch einbauen, dass bei falschem coin-String i wie auf den 404 reagiert wird (vllt exc)
                 jsonObject.put("name", coin);
                 jsonObjectList.add(jsonObject);
             } catch (IOException e) {

@@ -1,32 +1,54 @@
 package de.hrw.distsys.cryptoDashboard.backend.controller;
 
-import de.hrw.distsys.cryptoDashboard.backend.service.MarketPricesService;
-import org.junit.jupiter.api.BeforeEach;
+import de.hrw.distsys.cryptoDashboard.backend.FunctionalTest;
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.Matchers.containsString;
 
-@ExtendWith(SpringExtension.class)
-@WebMvcTest(MarketPricesController.class)
-class MarketPricesControllerTest {
+class MarketPricesControllerTest extends FunctionalTest {
 
-    private MarketPricesService underTest;
-
-    @BeforeEach
-    void setUp() {
-        underTest = new MarketPricesService();
+    @Test
+    void basicPingTest() {
+        RestAssured.given().when().get().then()
+                .statusCode(200);
+        RestAssured.given().when().get("/market_prices/current").then()
+                .statusCode(200);
+        RestAssured.given().when().get("/market_prices/historical").then()
+                .statusCode(400);
     }
 
     @Test
-    void getMarketPrices() {
+    void verifyIfResponseTypeIsJSON() {
+        RestAssured.given().when().get("/market_prices/current").then()
+                .contentType("application/json");
+        RestAssured.given().queryParam("coins", "bitcoin", "waves", "ethereum")
+                .queryParam("period_in_days", "1")
+                .when().get("/market_prices/historical")
+                .then().contentType("application/json");
     }
 
     @Test
-    void getMarketPriceHistorical() {
+    void verifyIfBodyContainsCurrencies() {
+        RestAssured.given().when().get("/market_prices/current").then()
+                .body(containsString("bitcoin"))
+                .body(containsString("ethereum"))
+                .body(containsString("waves"));
+        RestAssured.given()
+                .queryParam("coins", "bitcoin", "waves", "ethereum")
+                .queryParam("period_in_days", "1")
+                .when().get("/market_prices/historical")
+                .then()
+                .body(containsString("bitcoin"))
+                .body(containsString("waves"))
+                .body(containsString("ethereum"))
+                .body(containsString("prices"));
     }
+
+    @Test
+    void verifyIfBodyContainsCurrenciesInEur() {
+        RestAssured.given().when().get("/market_prices/current").then()
+                .body(containsString("eur"));
+    }
+
 }
