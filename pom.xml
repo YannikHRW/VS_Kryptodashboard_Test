@@ -14,8 +14,9 @@
 	<name>backend</name>
 	<description>Backend for Crypto Dashboard</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>1.8</java.version>
 	</properties>
+
 
 	<dependencies>
 
@@ -72,7 +73,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${project.parent.version}</version>
 			</plugin>
 		</plugins>
 	</build>
