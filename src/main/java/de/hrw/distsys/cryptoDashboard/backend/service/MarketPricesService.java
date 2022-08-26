@@ -22,8 +22,10 @@ public class MarketPricesService {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    private JSONObject pricesJSON;
+
     public JSONObject getMarketPrices() {
-        try {
+        /*try {
             URL url = new URL("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cwaves&vs_currencies=eur");
             return objectMapper.readValue(url, JSONObject.class);
         } catch (MalformedURLException mue) {
@@ -31,14 +33,15 @@ public class MarketPricesService {
             mue.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
-        }
-        return new JSONObject();
+        }*/
+        return this.pricesJSON;
+    }
+
+    public void setPricesJSON(JSONObject pricesJSON) {
+        this.pricesJSON = pricesJSON;
     }
 
     public List<JSONObject> getMarketPriceHistorical(List<String> coins, Long days) {
-
-
-       /* URL url = new URL()*/
 
 
         long currentDateTimeInUnix = System.currentTimeMillis() / 1000;
@@ -60,8 +63,9 @@ public class MarketPricesService {
                 jsonObject = objectMapper.readValue(new URL(
                                 "https://api.coingecko.com/api/v3/coins/" + coin + "/market_chart/range?vs_currency=eur&from=" + fromUnix + "&to=" + currentDateTimeInUnix),
                         JSONObject.class);
+                System.out.println("coingecko request...");
 
-                if (!coin.equals("waves")) {
+                if (!coin.equals("waves") && !coin.equals("tether")) {
 
                     jsonObject1 = objectMapper.readValue(new URL(
                             "https://api.blockchair.com/" + coin + "/transactions?a=date,avg(fee_usd),count()&q=time(" + fromDate + ".." + todaysDate + ")"), JSONObject.class);

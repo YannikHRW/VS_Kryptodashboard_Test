@@ -17,16 +17,40 @@
             </div>
         </header>
 
+
+
+        <section id="emblems">
+            <div class="row">
+                <div class="col-2" id="ethereum-col">
+                    <img id="ethereum-logo" src="img/ethereum-eth-logo.png" alt="nicht da">
+                </div>
+                <div class="col-2">
+                    <div id="coin-spinner" class="spin">
+                        <div id="hover-element"></div>
+                    </div>
+                </div>
+                <div class="col-2" id="waves-col">
+                    <img id="waves-logo" src="img/waves-waves-logo.png" alt="nicht da">
+                </div>
+            </div>
+        </section>
+
         <section id="current-prices">
             <div class="row">
                 <div class="col-2">
-                        <p>Bitcoin: <span id="bitcoin-price">999</span>€</p>
+                    <div class="price-inner">
+                        <p><span id="ethereum-price">999</span>€</p>
+                    </div>
                 </div>
                 <div class="col-2">
-                        <p>Ethereum: <span id="ethereum-price">999</span>€</p>
+                    <div class="price-inner">
+                        <p><span id="bitcoin-price">999</span>€</p>
+                    </div>
                 </div>
                 <div class="col-2">
-                        <p>Waves: <span id="waves-price">999</span>€</p>
+                    <div class="price-inner">
+                        <p><span id="waves-price">999</span>€</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -48,7 +72,14 @@
             <div class="row">
                 <div class="col-6">
                     <div>
-                        <canvas id="myChart"></canvas>
+                        <canvas id="pricesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <canvas id="relationChart"></canvas>
                     </div>
                 </div>
             </div>

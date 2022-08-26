@@ -33,9 +33,4 @@ public class MarketPricesController {
         return marketPricesService.getMarketPriceHistorical(coins, days);
     }
 
-    @GetMapping(path = "/historical/fee")
-    public List<JSONObject> getFeeHistorical(@RequestParam List<String> coins, @RequestParam(name = "period_in_days") Long days) {
-        return marketPricesService.getMarketPriceHistorical(coins, days);
-    }
-
 }
