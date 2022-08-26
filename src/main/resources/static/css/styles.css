@@ -18,10 +18,15 @@ header {
     text-align: center;
 }
 
-#current-prices .col-2 {
+.price-inner {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+/*#current-prices .col-2 {
     background-color: green;
     border: 2px solid black;
-}
+}*/
 
 /* GRID-SYSTEM */
 
@@ -87,4 +92,88 @@ p {
     .col-2 {width: 100%;}
     .col-3 {width: 100%;}
     .col-4 {width: 100%;}
+}
+
+.spin {
+    animation:  spinning 0.1s step-start 0s 20,
+    spinning 0.1176s step-start 2s 17,
+    spinning 0.1334s step-start 4s 15,
+    spinning 0.1666s step-start 6s 12,
+    spinning 0.2s step-start 8s 10,
+    spinning 0.25s step-start 10s 8,
+    spinning 0.333s step-start 12s 6,
+    spinning 0.4s step-start 14s 5,
+    spinning 0.5s step-start 16s 4,
+    spinning 0.666s step-start 18s 3,
+    spinning 1s step-start 20s 2,
+    spinning 2s step-start 22s 1,
+    falling 0.15s step-start 24s;
+}
+
+
+.getUp {
+    animation: getUp 0.15s step-start forwards;
+}
+
+.fall {
+    animation: falling 0.15s step-start;
+}
+
+#coin-spinner {
+    margin-right: auto;
+    margin-left: auto;
+    width: 178px;
+    height: 168px;
+    border: 2px solid transparent;
+    background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -6px;
+}
+
+#ethereum-col {
+    text-align: center;
+}
+#ethereum-logo {
+    height: 164px;
+}
+
+#waves-col {
+    text-align: center;
+}
+#waves-logo {
+    height: 164px;
+}
+
+#hover-element {
+    cursor: pointer;
+    margin-top: 26px;
+    margin-left: 32px;
+    width: 113px;
+    height: 113px;
+    border-radius: 50% 50% 15px 15px;
+}
+
+@keyframes spinning {
+    11.11% {background: url("../img/Sprite sheet of gold bitcoin.jpg")0px     -45px}
+    22.22% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-178px  -199px}
+    33.33% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-534px  -371px}
+    44.44% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-534px  -199px}
+    55.55% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-534px  -45px}
+    66.66% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-712px  -45px}
+    77.77% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-712px  -371px}
+    88.88% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-712px  -199px}
+    100% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-178px  -371px}
+}
+
+@keyframes getUp {
+    20% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -6px}
+    40% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -346px}
+    60% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -190px}
+    80% {background: url("../img/Sprite sheet of gold bitcoin.jpg")0px -376px}
+    100% {background: url("../img/Sprite sheet of gold bitcoin.jpg")0px     -45px}
+}
+
+@keyframes falling {
+    25% {background: url("../img/Sprite sheet of gold bitcoin.jpg")0px -376px}
+    50% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -190px}
+    75% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -346px}
+    100% {background: url("../img/Sprite sheet of gold bitcoin.jpg")-356px  -6px}
 }
